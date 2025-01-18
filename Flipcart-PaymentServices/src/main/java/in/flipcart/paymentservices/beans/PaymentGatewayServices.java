@@ -10,7 +10,7 @@ public class PaymentGatewayServices {
 	
 	private PaymentGateway paymentGateway;
 	@Autowired
-	public PaymentGatewayServices( PaymentGateway paymentGateway) {
+	public PaymentGatewayServices(@Qualifier("payPal") PaymentGateway paymentGateway) {
 		super();
 		this.paymentGateway = paymentGateway;
 	}
