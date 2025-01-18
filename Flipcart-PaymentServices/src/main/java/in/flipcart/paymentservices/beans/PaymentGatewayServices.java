@@ -10,10 +10,18 @@ public class PaymentGatewayServices {
 	
 	private PaymentGateway paymentGateway;
 	@Autowired
-	public PaymentGatewayServices(@Qualifier("payPal") PaymentGateway paymentGateway) {
+	public PaymentGatewayServices(@Qualifier("razorpay") PaymentGateway paymentGateway) {
 		super();
 		this.paymentGateway = paymentGateway;
 	}
-	
+	public void processPayment(double amount) {
+		paymentGateway.processPayment(amount);
+	}
+	public void validatePayment(String transactionId) {
+		paymentGateway.validatePayment(transactionId);
+	}
+	public void refundPayment(String transactionId) {
+		paymentGateway.refundPayment(transactionId);
+	}
 	
 }
